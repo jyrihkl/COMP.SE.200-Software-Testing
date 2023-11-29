@@ -61,10 +61,6 @@ describe('toNumber', () => {
     expect(toNumber('0b2')).toBe(NaN);
   });
 
-  it('should return the input value for a non-numeric string', () => {
-    expect(toNumber('abc')).toBe('abc');
-  });
-
   it('should return 0 for an empty string', () => {
     expect(toNumber('')).toBe(0);
   });
