@@ -5,13 +5,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest --config ./jest-config.js",
-    "test-coverage": "jest --config ./jest-config.js --coverage"
+    "test": "jest --config ./jest.config.cjs",
+    "test-coverage": "jest --config ./jest.config.cjs --coverage"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.23.5",
+    "@babel/preset-env": "^7.23.5",
     "babel-jest": "^29.7.0",
     "coveralls": "^3.1.1",
     "jest": "^29.7.0"
