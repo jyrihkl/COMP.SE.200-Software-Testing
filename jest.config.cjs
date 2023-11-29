@@ -1,6 +1,6 @@
 module.exports = {
-  testEnvironment: 'node'
-  extensionsToTreatAsEsm: ['.js'],,
+  testEnvironment: 'node',
+  extensionsToTreatAsEsm: ['.js'],
   coverageReporters: ['lcov', 'text'],
   collectCoverage: true,
   collectCoverageFrom: ['**/*.js'],
