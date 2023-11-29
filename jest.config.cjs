@@ -5,4 +5,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: ['**/*.js'],
   coveragePathIgnorePatterns: ['/node_modules/', '/src/.internal/'],
+  transform: {
+    '^.+\\.jsx?$': 'babel-jest',
+  },
 };
