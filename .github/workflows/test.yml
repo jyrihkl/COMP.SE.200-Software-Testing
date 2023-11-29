@@ -1,0 +1,25 @@
+name: Actions CI Pipeline
+
+# trigger build when pushing, or when creating a pull request
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    # run build on latest ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    # installing Node
+    - name: Use Node.js 16.16.0
+      uses: actions/setup-node@v3
+      with:
+        # this will use the latest Node 16 version
+        node-version: 16.16.0
+    # install dependencies using clean install to avoid package lock updates
+    - run: npm ci
+    # build the project if necessary
+    - run: npm run build --if-present
+    # finally run the test
+    - run: npm test
