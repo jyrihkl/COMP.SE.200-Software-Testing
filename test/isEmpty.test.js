@@ -60,15 +60,22 @@ describe('isEmpty', () => {
     expect(isEmpty(new Uint8Array())).toBe(true);
   });
 
-  it('should return true for an empty object with prototype value', () => {
-    const emptyObject = Object.create(null); // An object with no prototype
+  it('should return true for a non-empty object', () => {
+    const nonEmptyObject = Object.create({ prop: 'value' });
 
-    expect(isEmpty(emptyObject)).toBe(true);
+    expect(isEmpty(nonEmptyObject)).toBe(true);
   });
 
-  it('should return false for a non-empty object with prototype value', () => {
-    const nonEmptyObject = Object.create({ prop: 'value' }); // An object with a prototype
+  it('should return true for an empty prototype', () => {
+    const proto = Object.prototype;
 
-    expect(isEmpty(nonEmptyObject)).toBe(false);
+    expect(isEmpty(proto)).toBe(true);
+  });
+
+  it('should return false for a non-empty prototype', () => {
+    const proto = Object.prototype;
+    proto.prop = 'value'
+
+    expect(isEmpty(proto)).toBe(false);
   });
 });
