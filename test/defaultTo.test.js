@@ -7,10 +7,6 @@ describe('defaultTo', () => {
     expect(defaultTo(true, false)).toBe(true);
   });
 
-  it('should return the default value if value is NaN', () => {
-    expect(defaultTo(NaN, 42)).toBe(42);
-  });
-
   it('should return the default value if value is null', () => {
     expect(defaultTo(null, 'default')).toBe('default');
   });

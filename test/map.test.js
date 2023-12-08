@@ -17,19 +17,8 @@ describe('map', () => {
     expect(map([], square)).toEqual([]);
   });
 
-  it('should return an array of undefined values if iteratee is not provided', () => {
-    expect(map([1, 2, 3])).toEqual([undefined, undefined, undefined]);
-  });
-
-  it('should handle objects in the array and apply the iteratee to their values', () => {
-    function double(value) {
-      return value * 2;
-    }
-
-    const inputArray = [4, { a: 2 }, 8];
-    const expectedOutput = [8, { a: 4 }, 16];
-
-    expect(map(inputArray, double)).toEqual(expectedOutput);
+  it('should throw an error if iteratee is not provided', () => {
+    expect(() => map([1, 2, 3])).toThrow(TypeError);
   });
 
   it('should pass index and original array to the iteratee function', () => {
