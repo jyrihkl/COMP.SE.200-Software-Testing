@@ -1,4 +1,4 @@
-import isEmpty from '../src/toEmpty';
+import isEmpty from '../src/isEmpty';
 
 describe('isEmpty', () => {
   it('should return true for null', () => {
@@ -58,5 +58,17 @@ describe('isEmpty', () => {
 
   it('should return true for empty typed array', () => {
     expect(isEmpty(new Uint8Array())).toBe(true);
+  });
+
+  it('should return true for an empty object with prototype value', () => {
+    const emptyObject = Object.create(null); // An object with no prototype
+
+    expect(isEmpty(emptyObject)).toBe(true);
+  });
+
+  it('should return false for a non-empty object with prototype value', () => {
+    const nonEmptyObject = Object.create({ prop: 'value' }); // An object with a prototype
+
+    expect(isEmpty(nonEmptyObject)).toBe(false);
   });
 });
